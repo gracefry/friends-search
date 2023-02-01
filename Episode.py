@@ -6,5 +6,3 @@ class Episode:
         self.title = title
         self.summary = summary
         self.stars = stars
-
-    

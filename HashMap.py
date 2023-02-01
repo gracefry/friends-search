@@ -44,14 +44,6 @@ class HashMap:
 
     return
 
-#   def retrieveAllKeys(self):
-#     keys = []
-#     for pair in self.array:
-#         keys.append(pair[0])
-
-#     return keys
-        
-
   def retrieve(self, key):
     array_index = self.compressor(self.hash(key))
     possible_return_value = self.array[array_index]

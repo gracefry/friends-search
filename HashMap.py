@@ -4,7 +4,7 @@ class HashMap:
     self.array = [None for item in range(array_size)]
 
   def hash(self, key, count_collisions=0):
-    key_bytes = key.encode()
+    key_bytes = key.title.encode()
     hash_code = sum(key_bytes)
     return hash_code + count_collisions
 
@@ -43,6 +43,14 @@ class HashMap:
       number_collisions += 1
 
     return
+
+#   def retrieveAllKeys(self):
+#     keys = []
+#     for pair in self.array:
+#         keys.append(pair[0])
+
+#     return keys
+        
 
   def retrieve(self, key):
     array_index = self.compressor(self.hash(key))

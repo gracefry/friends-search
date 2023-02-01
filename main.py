@@ -18,7 +18,7 @@ def addToArray(episode):
 def getArray():
     return episodes
 
-def getTop10(ls):
+def getTop(ls, num):
     sort = []
     max_heap = MaxHeap.MaxHeap()
 
@@ -27,8 +27,8 @@ def getTop10(ls):
     
     while max_heap.count > 0:
         max_value = max_heap.retrieve_max()
-        sort.insert(0, max_value.title)
-        if len(sort) == 10:
+        sort.append(max_value.title)
+        if len(sort) == num:
             break
 
     return sort
@@ -42,8 +42,8 @@ def welcome():
 def main():
     importDataset()
     welcome()
-
-    print(getTop10(getArray()))
+    print(len(getArray()))
+    # print(getTop(getArray(), 20))
 
 if __name__ == "__main__":
     main()

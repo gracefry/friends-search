@@ -1,5 +1,6 @@
 import csv
 import Episode
+import MaxHeap
 
 episodes = []
 
@@ -14,14 +15,35 @@ def importDataset():
 def addToArray(episode):
     episodes.append(episode)
 
+def getArray():
+    return episodes
+
+def getTop10(ls):
+    sort = []
+    max_heap = MaxHeap.MaxHeap()
+
+    for idx in ls:
+        max_heap.add(idx)
+    
+    while max_heap.count > 0:
+        max_value = max_heap.retrieve_max()
+        sort.insert(0, max_value.title)
+        if len(sort) == 10:
+            break
+
+    return sort
+
 def welcome():
     print('''
       Look up the Friends episode you forgot!                                                                                                                                                                 
     ''')
-    importDataset()
+
 
 def main():
+    importDataset()
     welcome()
+
+    print(getTop10(getArray()))
 
 if __name__ == "__main__":
     main()
